@@ -1,4 +1,22 @@
+<?php
+include("../Assets/Connection/Connection.php");
 
+if(isset($_POST['btn_submit']))
+{
+  $course=$_POST['txt_course'];
+  $insQuery="insert into tbl_course (course_name) values('".$course."')";
+  if($con->query($insQuery))
+  {
+    ?>
+    <script>
+      alert("Course Name Inserted");
+      window.location="Course.php";
+    </script>
+    <?php
+  }
+}
+
+?>
 
 
 
@@ -10,9 +28,9 @@
 </head>
 
 <body>
-<form action="" method="get"><table width="294" border="1">
+<form action="" method="post"><table width="294" border="1">
   <tr>
-    <td width="114">Course</td>
+    <td width="114">Course Name</td>
     <td width="164"><label for="txt_course"></label>
       <input type="text" name="txt_course" id="txt_course" /></td>
   </tr>
