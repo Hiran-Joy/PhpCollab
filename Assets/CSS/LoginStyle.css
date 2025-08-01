@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+body {
+   background-color: #625f77;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  display: flex;
+  /* max-width: 900px; */
+  height: 500px;
+  width: 70%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 5px 10px 30px rgba(244, 242, 242, 0.2);
+  background-color: #1e1b2e;
+}
+.left-panel{
+    width: 50%;
+    height: 94%;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+   border-radius: 16px;
+   background-image: url("images/ios-14-desert-at-night-2zjysk4lnhvbtchc.jpg");
+   background-size: cover; 
+   background-position: center; 
+   background-repeat: no-repeat;
+   box-shadow: 0px 10px 20px rgba(46, 45, 45, 0.2);
+}
+.right-panel{
+    width: 50%;
+    height: 100%;
+    background-color: #1e1b2e;
+    flex: 1;
+    padding: 60px 40px;
+    color: white;
+    margin-top: 40px;
+}
+
+
+.right-panel h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.sub-text {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.sub-text a {
+  color: #9975ff;
+  text-decoration: none;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  background-color: #3e3950;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.login-form input:focus {
+  outline: 2px solid #9975ff;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #9975ff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-btn:hover {
+  background-color: #7e61d3;
+}
