@@ -41,7 +41,7 @@ body {
     flex: 1;
     padding: 60px 40px;
     color: white;
-    margin-top: 40px;
+    margin-top: 45 px;
 }
 
 
@@ -78,7 +78,7 @@ body {
 .login-btn {
   width: 100%;
   padding: 12px;
-  background-color: #9975ff;
+  background-color: #8259f4;
   border: none;
   border-radius: 8px;
   color: white;
