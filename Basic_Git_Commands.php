@@ -1,4 +1,4 @@
-<!-- 1.Forcing Git to recognize the case change-->
+<!--1--><!-- Forcing Git to recognize the case change -->
 
 <!-- git config core.ignorecase false -->
 
