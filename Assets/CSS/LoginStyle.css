@@ -13,7 +13,6 @@ body {
 }
 .container {
   display: flex;
-  /* max-width: 900px; */
   height: 500px;
   width: 70%;
   border-radius: 20px;
@@ -27,12 +26,12 @@ body {
     margin-left: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
-   border-radius: 16px;
-   background-image: url("images/ios-14-desert-at-night-2zjysk4lnhvbtchc.jpg");
-   background-size: cover; 
-   background-position: center; 
-   background-repeat: no-repeat;
-   box-shadow: 0px 10px 20px rgba(46, 45, 45, 0.2);
+    border-radius: 16px;
+    background-image: url("Images/freepik__cartoon-art-of-students-studying-with-laptops-and-__77503.png");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    box-shadow: 0px 10px 20px rgba(46, 45, 45, 0.2);
 }
 .right-panel{
     width: 50%;
@@ -41,19 +40,20 @@ body {
     flex: 1;
     padding: 60px 40px;
     color: white;
-    margin-top: 45 px;
+    margin-top: 45px;
 }
 
 
 .right-panel h2 {
   font-size: 28px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .sub-text {
   margin-bottom: 30px;
   font-size: 14px;
   color: #ccc;
+  text-align: center;
 }
 
 .sub-text a {
@@ -85,6 +85,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
+  margin-bottom: 25px;
 }
 
 .login-btn:hover {
