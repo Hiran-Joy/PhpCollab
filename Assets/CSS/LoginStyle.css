@@ -13,7 +13,6 @@ body {
 }
 .container {
   display: flex;
-  /* max-width: 900px; */
   height: 500px;
   width: 70%;
   border-radius: 20px;
@@ -27,12 +26,12 @@ body {
     margin-left: 15px;
     margin-top: 15px;
     margin-bottom: 15px;
-   border-radius: 16px;
-   background-image: url("images/freepik__vector-art-of-diverse-college-students-studying-to__77498.png");
-   background-size: cover; 
-   background-position: center; 
-   background-repeat: no-repeat;
-   box-shadow: 0px 10px 20px rgba(46, 45, 45, 0.2);
+    border-radius: 16px;
+    background-image: url("Images/freepik__cartoon-art-of-students-studying-with-laptops-and-__77503.png");
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    box-shadow: 0px 10px 20px rgba(46, 45, 45, 0.2);
 }
 .right-panel{
     width: 50%;

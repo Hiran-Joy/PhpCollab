@@ -1,3 +1,34 @@
+<?php
+include("../Assets/Connection/Connection.php");
+if(isset($_POST['btn_submit'])){
+  $name=$_POST['txt_name'];
+  $email=$_POST['txt_email'];
+  $password=$_POST['txt_password'];
+
+  $user_photo=$_FILES['file_photo']['name'];
+  $temp=$_FILES['file_photo']['tmp_name'];
+  move_uploaded_file($temp,'../Assets/File/UserDoc/'.$user_photo);
+
+  $inQuery="insert into tbl_user(user_name,user_email,user_password,user_photo) values('".$name."','".$email."','".$password."','".$user_photo."') ";
+  if($con->query($inQuery)){
+    ?>
+    <script>
+      alert("Registration completed successfully");
+      window.locaction="Registration.php";
+    </script>
+    <?php
+  }
+  else{
+    ?>
+    <script>
+      alert("Registration failed!");
+      window.locaction="Registration.php";
+    </script>
+    <?php
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +37,7 @@
     <title>Registration</title>
 </head>
 <body>
-    <form action="" method="get" enctype="multipart/form-data"><table width="334" border="1">
+    <form action="" method="post" enctype="multipart/form-data"><table width="334" border="1">
   <tr>
     <td width="138">Name</td>
     <td width="180"><label for="txt_name"></label>
