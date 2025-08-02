@@ -28,7 +28,7 @@ body {
     margin-top: 15px;
     margin-bottom: 15px;
    border-radius: 16px;
-   background-image: url("images/ios-14-desert-at-night-2zjysk4lnhvbtchc.jpg");
+   background-image: url("images/freepik__vector-art-of-diverse-college-students-studying-to__77498.png");
    background-size: cover; 
    background-position: center; 
    background-repeat: no-repeat;
@@ -47,13 +47,14 @@ body {
 
 .right-panel h2 {
   font-size: 28px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .sub-text {
   margin-bottom: 30px;
   font-size: 14px;
   color: #ccc;
+  text-align: center;
 }
 
 .sub-text a {
@@ -85,6 +86,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
+  margin-bottom: 25px;
 }
 
 .login-btn:hover {

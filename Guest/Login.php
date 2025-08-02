@@ -13,13 +13,16 @@
     </div>
     <div class="right-panel">
       <h2>Welcome back</h2>
-      <p class="sub-text">Don’t have an account? <a href="#">Sign up</a></p>
+      
 
       <form class="login-form">
         <input type="email" placeholder="Email" required>
         <input type="password" placeholder="Enter your password" required>
 
         <button type="submit" class="login-btn">Login</button>
+
+        <p class="sub-text">Don’t have an account? <a href="#">Sign up</a></p>
+      </form>
     </div>
   </div>
 <!-- <form action="" method="get">
