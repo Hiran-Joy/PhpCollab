@@ -5,7 +5,7 @@
 <title>Untitled Document</title>
 </head>
 
-<body><form action="" method="get" enctype="multipart/form-data"><table width="347" border="1">
+<body><form action="" method="post" enctype="multipart/form-data"><table width="347" border="1">
   <tr>
     <td width="179">Course</td>
     <td width="152"><label for="sel_course"></label>

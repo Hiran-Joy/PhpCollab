@@ -12,4 +12,4 @@ include("../Assets/Connection/Connection.php");
 <body>
     <h1>Welcome <?php echo $_SESSION['uname'];  ?></h1>
 </body>
-</html>
+</html> 
