@@ -40,7 +40,7 @@ body {
     flex: 1;
     padding: 60px 40px;
     color: white;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 
@@ -90,4 +90,12 @@ body {
 
 .login-btn:hover {
   background-color: #7e61d3;
+}
+
+.file-input {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 15px;
 }
