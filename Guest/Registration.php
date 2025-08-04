@@ -46,7 +46,7 @@ if (isset($_POST['btn_submit'])) {
         <input type="text" name="txt_name" id="txt_name" placeholder="Full Name" required />
         <input type="email" name="txt_email" id="txt_email" placeholder="Email" required />
         <input type="password" name="txt_password" id="txt_password" placeholder="Create Password" required />
-        <input class="file-input" type="file" name="file_photo" id="file_photo" class="file-input" required />
+        <input type="file" name="file_photo" id="file_photo" class="file-input" required />
 
         <button type="submit" class="login-btn" name="btn_submit" id="btn_submit">Sign Up</button>
 
