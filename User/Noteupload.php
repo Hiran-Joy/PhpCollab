@@ -3,6 +3,7 @@
 // DATABASE CONNECTION
 // ==============================================
 include('../Assets/Connection/Connection.php');
+$course_namee="";
 
 // ==============================================
 // NOTE UPLOAD HANDLING
@@ -12,12 +13,13 @@ if(isset($_POST['btn_submit']))
   $note_title = $_POST['txt_title'];
   $note_desc = $_POST['txt_description'];
   $subject_id = $_POST['sel_subject'];
+  $course_id = $_POST['sel_course'];
   $note_photo = $_FILES['file_note']['name'];
   $temp = $_FILES['file_note']['tmp_name'];
   
   move_uploaded_file($temp, '../Assets/File/UserDoc/' . $note_photo);
 
-  $insQuery = "insert into tbl_notes (subject_id,note_name,note_file,note_desc) values('".$subject_id."','".$note_title."','".$note_photo."','".$note_desc."')";
+  $insQuery = "insert into tbl_notes (subject_id,course_id,note_name,note_file,note_desc) values('".$subject_id."','".$course_id."','".$note_title."','".$note_photo."','".$note_desc."')";
   
   if($con->query($insQuery))
   {
@@ -49,18 +51,19 @@ while($data = $row->fetch_assoc())
 // ==============================================
 if(isset($_GET['did']))
 {
-  $delQuery = "delete from tbl_notes where note_id='".$_GET['did']."'";
+  echo $_GET['did'];
+  $delQuery = "DELETE FROM tbl_notes WHERE note_id ='".$_GET['did']."'";
+  
   if($con->query($delQuery))
   {
-    ?>
-    <script>
-      alert("Note Deleted");
-      window.location="Noteupload.php";
-    </script>
-    <?php
+    
+   echo "Deleted"; 
   }
 }
+
 ?>
+
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -140,9 +143,9 @@ if(isset($_GET['did']))
   <!-- ============================================== -->
   <!-- NOTES LISTING TABLE -->
   <!-- ============================================== -->
-  <table width="347" border="1">
+  <table border="1">
     <tr>
-      <td>SI NO:</td> <!--Align this NOTES LISTING TABLE properly-->
+      <td>SI NO:</td>
       <td>Course</td>
       <td>Subject</td>
       <td>Note Title</td>
@@ -168,7 +171,8 @@ if(isset($_GET['did']))
         <td><?php echo $data['note_name'] ?></td>
         <td><?php echo $data['note_desc'] ?></td>
         <td><img src="../Assets/File/UserDoc/<?php echo $data['note_file']?>" alt="" width="100px" height="100px"></td>
-        <td><a href="Noteupload.php?did=<?php echo $data['note_id']?>">Delete</a></td> <!--Edit is pending-->
+        <td><a href="Noteupload.php?did=<?php echo $data['note_name']?>">Delete</a>
+            <a href="Noteupload.php?eid=<?php echo $data['note_id']?>">Edit</a></td> <!--Edit is pending-->
       </tr>
       <?php
     }
