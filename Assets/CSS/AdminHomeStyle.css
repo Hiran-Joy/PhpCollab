@@ -1,0 +1,27 @@
+/* *{
+    margin: 0;
+}
+.main_container{
+    display: flex;
+}
+.side_bar{
+    width: 20%;
+    height: 100vh;
+    background-color: #7e61d3;
+}
+.navhero_div{
+    width: 80%;
+
+}
+.nav_bar{
+    width: 100%;
+    height: 50px;
+    background-color: aquamarine;
+}
+.side_bar_title{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin-top: 20px;
+    margin-left: 20px;
+} */

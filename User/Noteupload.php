@@ -19,7 +19,7 @@ if(isset($_POST['btn_submit']))
   
   move_uploaded_file($temp, '../Assets/File/UserDoc/' . $note_photo);
 
-  $insQuery = "insert into tbl_notes (subject_id,course_id,note_name,note_file,note_desc) values('".$subject_id."','".$course_id."','".$note_title."','".$note_photo."','".$note_desc."')";
+  $insQuery = "insert into tbl_notes(subject_id,note_name,note_file,note_desc) values('".$subject_id."','".$note_title."','".$note_photo."','".$note_desc."')";
   
   if($con->query($insQuery))
   {
@@ -171,7 +171,7 @@ if(isset($_GET['did']))
         <td><?php echo $data['note_name'] ?></td>
         <td><?php echo $data['note_desc'] ?></td>
         <td><img src="../Assets/File/UserDoc/<?php echo $data['note_file']?>" alt="" width="100px" height="100px"></td>
-        <td><a href="Noteupload.php?did=<?php echo $data['note_name']?>">Delete</a>
+        <td><a href="Noteupload.php?did=<?php echo $data['note_id']?>">Delete</a>
             <a href="Noteupload.php?eid=<?php echo $data['note_id']?>">Edit</a></td> <!--Edit is pending-->
       </tr>
       <?php

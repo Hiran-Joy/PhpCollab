@@ -14,7 +14,7 @@ if(isset($_POST['btn_submit'])){
     $_SESSION['uid']=$data['user_id'];
     $_SESSION['uname']=$data['user_name'];
     echo "Login successfull";
-    header("location:../User/HomePage.php");
+    header("location:../User/AdminHomePage.php");
   }
   else if($data=$resAdmin->fetch_assoc()){
     $_SESSION['uid']=$data['admin_id'];
