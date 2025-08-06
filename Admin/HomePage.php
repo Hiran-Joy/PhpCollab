@@ -11,7 +11,5 @@ include("../Assets/Connection/Connection.php");
 </head>
 <body>
     <h1>Welcome <?php echo $_SESSION['uname'];  ?></h1>
-    <a href="MyProfile.php">MyProfile</a>
-    <a href="Noteupload.php">NoteUpload</a>
 </body>
-</html> 
+</html>
