@@ -3,6 +3,7 @@
 }
 .main_container{
     display: flex;
+    max-width: 100%;
 }
 .side_bar{
     width: 20%;
@@ -54,16 +55,16 @@
 .options:hover {
   background-color: #6e2bf2;
   cursor: pointer;
-  width: 230px;
-  height: 40px;
+  /* width: 230px;
+  height: 40px; */
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
 .optionl:hover {
   background-color: #6e2bf2;
   cursor: pointer;
-  width: 230px;
-  height: 40px;
+  /* width: 230px;
+  height: 40px; */
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
 }
