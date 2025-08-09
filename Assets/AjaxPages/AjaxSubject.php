@@ -1,5 +1,10 @@
 <?php
 include("../Connection/Connection.php");
+?>
+<script>
+	console.log("")
+</script>
+<?php
 
 $selQuery="select * from tbl_subject where course_id='".$_GET['Did']."'";
 $row=$con->query($selQuery);
