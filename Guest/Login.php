@@ -5,19 +5,28 @@ if(isset($_POST['btn_submit'])){
   $email=$_POST['txt_email'];
   $password=$_POST['txt_password'];
 
-  $selQuery="select * from tbl_user where user_email='".$email."' and user_password='".$password."' ";
-  $row=$con->query($selQuery);
-  if($data=$row->fetch_assoc()){
+  $selUser="select * from tbl_user where user_email='".$email."' and user_password='".$password."' ";
+  $resUser=$con->query($selUser);
+  $selAdmin="select * from tbl_admin where admin_email='".$email."' and admin_password='".$password."' ";
+  $resAdmin=$con->query($selAdmin);
+
+  if($data=$resUser->fetch_assoc()){
     $_SESSION['uid']=$data['user_id'];
     $_SESSION['uname']=$data['user_name'];
     echo "Login successfull";
     header("location:../User/HomePage.php");
   }
+  else if($data=$resAdmin->fetch_assoc()){
+    $_SESSION['uid']=$data['admin_id'];
+    $_SESSION['uname']=$data['admin_name'];
+    echo "Login successfull";
+    header("location:../Admin/HomePage.php");
+  }
   else{
     ?>
       <script>
         alert("Invalid email or password");
-        window.location="Login.php";
+        window.location="Login.php"; 
       </script>
     <?php
   }
