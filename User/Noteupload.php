@@ -20,7 +20,6 @@ if(isset($_POST['btn_submit']))
     $course_id = $_POST['sel_course'];
     $hid = $_POST['hid'];
 
-<<<<<<< HEAD
     // File handling
     $note_photo = $_FILES['file_note']['name'];
     $temp = $_FILES['file_note']['tmp_name'];
@@ -68,19 +67,7 @@ if(isset($_POST['btn_submit']))
             <?php
         }
     }
-=======
-  $insQuery = "insert into tbl_notes(subject_id,note_name,note_file,note_desc) values('".$subject_id."','".$note_title."','".$note_photo."','".$note_desc."')";
-  
-  if($con->query($insQuery))
-  {
-    ?>
-    <script>
-      alert("Note Uploaded");
-      window.location="Noteupload.php";
-    </script>
-    <?php
-  }
->>>>>>> 9865b821cc555cfc2a625f05d98135461c7938d6
+
 }
 
 // ==============================================
@@ -208,40 +195,35 @@ if(isset($_GET['eid']))
                  INNER JOIN tbl_course c ON s.course_id = c.course_id";
     $row = $con->query($selQuery);
     $i = 0;
-<<<<<<< HEAD
-    while($data = $row->fetch_assoc()) {
-        $i++;
-        ?>
-        <tr>
-            <td><?php echo $i; ?></td>
-            <td><?php echo $data['course_name']; ?></td>
-            <td><?php echo $data['subject_name']; ?></td>
-            <td><?php echo $data['note_name']; ?></td>
-            <td><?php echo $data['note_desc']; ?></td>
-            <td><img src="../Assets/File/UserDoc/<?php echo $data['note_file']; ?>" alt="" width="100px" height="100px"></td>
-            <td>
-                <a href="Noteupload.php?did=<?php echo $data['note_id']; ?>">Delete</a> | 
-                <a href="Noteupload.php?eid=<?php echo $data['note_id']; ?>">Edit</a>
-            </td>
-        </tr>
-        <?php
-=======
     while($data = $row->fetch_assoc())
     {
       $i++;
       ?>
       <tr>
         <td><?php echo $i; ?></td>
-        <td><?php echo $data['course_name'] ?></td>
-        <td><?php echo $data['subject_name'] ?></td>
-        <td><?php echo $data['note_name'] ?></td>
-        <td><?php echo $data['note_desc'] ?></td>
-        <td><img src="../Assets/File/UserDoc/<?php echo $data['note_file']?>" alt="" width="100px" height="100px"></td>
-        <td><a href="Noteupload.php?did=<?php echo $data['note_id']?>">Delete</a>
-            <a href="Noteupload.php?eid=<?php echo $data['note_id']?>">Edit</a></td> <!--Edit is pending-->
+        <td><?php echo $data['course_name']; ?></td>
+        <td><?php echo $data['subject_name']; ?></td>
+        <td><?php echo $data['note_name']; ?></td>
+        <td><?php echo $data['note_desc']; ?></td>
+        <td>
+            <?php 
+            $file = $data['note_file'];
+            $ext = pathinfo($file, PATHINFO_EXTENSION);
+            
+            if(strtolower($ext) == 'pdf') {
+                // Display PDF icon for PDF files
+                echo '<img src="../Assets/Icons/pdf-icon.png" width="50" height="50" alt="PDF File">';
+                echo '<br><a href="../Assets/File/UserDoc/'.$file.'" download>Download PDF</a>';
+            } else {
+                // Display image normally for image files
+                echo '<img src="../Assets/File/UserDoc/'.$file.'" alt="" width="100px" height="100px">';
+            }
+            ?>
+        </td>
+        <td><a href="Noteupload.php?did=<?php echo $data['note_id']; ?>">Delete</a> | 
+            <a href="Noteupload.php?eid=<?php echo $data['note_id']; ?>">Edit</a></td>
       </tr>
       <?php
->>>>>>> 9865b821cc555cfc2a625f05d98135461c7938d6
     }
     ?>
 </table>
