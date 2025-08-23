@@ -9,38 +9,38 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 .container {
   display: flex;
-  height: 500px;
+  flex-wrap: wrap;  /* allow wrapping */
   width: 70%;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 5px 10px 30px rgba(244, 242, 242, 0.2);
   background-color: #1e1b2e;
+  margin: auto;
 }
-.left-panel{
-    width: 50%;
-    height: 94%;
-    margin-left: 15px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 16px;
-    background-image: url("Images/freepik__cartoon-art-of-students-studying-with-laptops-and-__77503.png");
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;
-    box-shadow: 0px 10px 20px rgba(46, 45, 45, 0.2);
+
+/* Panels */
+.left-panel {
+  flex: 1 1 300px;   /* grow, shrink, min-width */
+  height: 400px;
+  margin: 15px;
+  border-radius: 16px;
+  background-image: url("Images/freepik__cartoon-art-of-students-studying-with-laptops-and-__77503.png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  box-shadow: 0px 10px 20px rgba(46, 45, 45, 0.2);
 }
-.right-panel{
-    width: 50%;
-    height: 100%;
-    background-color: #1e1b2e;
-    flex: 1;
-    padding: 60px 40px;
-    color: white;
-    margin-top: 60px;
+
+.right-panel {
+  flex: 1 1 300px;   /* grow, shrink, min-width */
+  background-color: #1e1b2e;
+  padding: 40px;
+  color: white;
+  margin: 15px;
 }
 
 
@@ -90,4 +90,18 @@ body {
 
 .login-btn:hover {
   background-color: #7e61d3;
+}
+
+/* Stack vertically on small screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 90%;   /* take most of the width */
+    margin: 10px 0;
+  }
 }
