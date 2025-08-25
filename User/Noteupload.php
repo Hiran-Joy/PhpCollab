@@ -1,4 +1,5 @@
 <?php
+session_start();
 // ==============================================
 // DATABASE CONNECTION
 // ==============================================
@@ -24,13 +25,13 @@ if(isset($_POST['btn_submit']))
     $note_photo = $_FILES['file_note']['name'];
     $temp = $_FILES['file_note']['tmp_name'];
     if($note_photo != "") {
-        move_uploaded_file($temp, '../Assets/File/UserDoc/' . $note_photo);
+        move_uploaded_file($temp, '../Assets/File/NoteDoc/' . $note_photo);
     }
 
     if(trim($hid) == "") {
         // Insert new note
-        $insQuery = "INSERT INTO tbl_notes(course_id,subject_id,note_name,note_file,note_desc) 
-                     VALUES('".$course_id."','".$subject_id."','".$note_title."','".$note_photo."','".$note_desc."')";
+        $insQuery = "INSERT INTO tbl_notes(subject_id,note_name,note_file,note_desc,user_id,note_createdate) 
+                     VALUES('".$subject_id."','".$note_title."','".$note_photo."','".$note_desc."','".$_SESSION['uid']."',CURDATE())";
         if($con->query($insQuery)) {
             ?>
             <script>
@@ -213,10 +214,10 @@ if(isset($_GET['eid']))
             if(strtolower($ext) == 'pdf') {
                 // Display PDF icon for PDF files
                 echo '<img src="../Assets/Icons/pdf-icon.png" width="50" height="50" alt="PDF File">';
-                echo '<br><a href="../Assets/File/UserDoc/'.$file.'" download>Download PDF</a>';
+                echo '<br><a href="../Assets/File/NoteDoc/'.$file.'" target="_blank">View note</a>';
             } else {
                 // Display image normally for image files
-                echo '<img src="../Assets/File/UserDoc/'.$file.'" alt="" width="100px" height="100px">';
+                echo '<img src="../Assets/File/NoteDoc/'.$file.'" alt="" width="100px" height="100px">';
             }
             ?>
         </td>
