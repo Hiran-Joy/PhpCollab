@@ -1,10 +1,5 @@
 <?php
 include("../Connection/Connection.php");
-?>
-<script>
-	console.log("")
-</script>
-<?php
 
 $subject_idd = isset($_GET['Sid']) ? $_GET['Sid'] : "";
 

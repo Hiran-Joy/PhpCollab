@@ -39,7 +39,7 @@ session_start();
                     Subject
                 </td>
                 <td>
-                     <select name="sel_subject" id="sel_subject">
+                     <select name="sel_subject" id="sel_subject" onchange="getNotes(this.value)">
                         <option value="">----select subject----</option>
                     </select>
                 </td>
@@ -49,39 +49,47 @@ session_start();
     <br>
     <br>
     <table border="1">
-        <tr>
-            <th>SlNo</th>
-            <th>Course</th>
-            <th>Subject</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>File</th>
-        </tr>
-        <?php
+        <thead>
+            <tr>
+                <th>SlNo</th>
+                <th>Course</th>
+                <th>Subject</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>File</th>
+            </tr>
+        </thead>
+
+         <tbody id="note_table">
+            <tr><td colspan="6">Please select a course and subject</td></tr>
+        </tbody>
+
+        <!-- <?php
         $noteSel="select * from tbl_notes n inner join  tbl_subject s  on n.subject_id=s.subject_id inner join tbl_course c on s.course_id=c.course_id";
-        $row=$con->query($noteSel);
+        $result=$con->query($noteSel);
         $i=0;
-        while($data=$row->fetch_assoc()){
+        while($notes=$result->fetch_assoc()){
         ?>
         <tr>
-            <td>$i++</td>
-            <td><?php echo $data['course_name']; ?></td>
-            <td><?php echo $data['subject_name']; ?></td>
-            <td><?php echo $data['note_title']; ?></td>
-            <td><?php echo $data['note_description']; ?></td>
-            <td><?php echo $data['note_file']; ?></td>
+            <td><?php echo ++$i; ?></td>
+            <td><?php echo $notes['course_name']; ?></td>
+            <td><?php echo $notes['subject_name']; ?></td>
+            <td><?php echo $notes['note_name']; ?></td>
+            <td><?php echo $notes['note_desc']; ?></td>
+            <td>
+                <?php $file =  $notes['note_file'];?>
+                <a href="../Assets/File/NoteDoc/<?php echo $file; ?>">View file</a>
+             </td>
         </tr>
         <?php
              }
-        ?>
+        ?> -->
     </table>
     <script src="../Assets/JQuery/JQuery.js">
-    console.log("JQuery connected");
     </script>
     <script>
         function getSubject(did)
         {
-            console.log("getSubject fn called");
             $.ajax({
               url:"../Assets/AjaxPages/AjaxSubject.php",
               data:{Did:did},
@@ -91,6 +99,18 @@ session_start();
               }
             })
         }
-</script>
+    </script>
+    <script>
+       function getNotes(sid)
+       {
+            $.ajax({
+                url:"../Assets/AjaxPages/AjaxNotes.php",
+                data:{Sid:sid},
+                success:function(response){
+                    $("#note_table").html(response);
+                }
+            })
+       } 
+    </script>
 </body>
 </html>
