@@ -180,7 +180,7 @@ if(isset($_GET['eid']))
 <!-- ============================================== -->
 <table border="1">
     <tr>
-        <td>SI NO:</td>
+        <td>SI NO</td>
         <td>Course</td>
         <td>Subject</td>
         <td>Note Title</td>
@@ -193,7 +193,7 @@ if(isset($_GET['eid']))
                         s.subject_name, c.course_name
                  FROM tbl_notes n
                  INNER JOIN tbl_subject s ON n.subject_id = s.subject_id
-                 INNER JOIN tbl_course c ON s.course_id = c.course_id";
+                 INNER JOIN tbl_course c ON s.course_id = c.course_id where user_id=".$_SESSION['uid'];
     $row = $con->query($selQuery);
     $i = 0;
     while($data = $row->fetch_assoc())
